@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nav-links a {
+    color: #000;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.google-logo {
+    max-width: 272px;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 584px;
+    height: 44px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    padding: 0 16px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.search-button, .lucky-button {
+    background-color: #f8f9fa;
+    border: 1px solid #dfe1e5;
+    border-radius: 4px;
+    color: #3c4043;
+    padding: 0 16px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.search-button:hover, .lucky-button:hover {
+    background-color: #4285f4;
+    color: white;
+}
+
+.advanced-search-container {
+    width: 100%;
+    max-width: 1140px;
+    padding: 40px 20px;
+}
+
+.advanced-search-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.advanced-search-row label {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.advanced-input {
+    height: 36px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    padding: 0 8px;
+    font-size: 14px;
+}
+
+.advanced-search-button {
+    background-color: #4285f4;
+    border: 1px solid #4285f4;
+    color: white;
+    height: 36px;
+    padding: 0 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.advanced-search-button:hover {
+    background-color: #3367d6;
+    transform: scale(1.05);
+}
