@@ -1,0 +1,116 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Page
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="page-title">Create New Page</h1>
+
+        {% if error_message %}
+            <div class="alert alert-danger">{{ error_message }}</div>
+        {% endif %}
+
+        <form action="{% url 'create_page' %}" method="post" class="create-form">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="title">Page Title</label>
+                {{ form.title }}
+            </div>
+
+            <div class="form-group">
+                <label for="content">Markdown Content</label>
+                {{ form.content }}
+            </div>
+
+            <button type="submit" class="btn btn-primary submit-btn">Save</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block styles %}
+    <style>
+        body {
+            background-color: #f4f7fa;
+            font-family: Arial, sans-serif;
+            padding-top: 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 200px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .alert {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8d7da;
+            border-radius: 5px;
+            color: #721c24;
+            font-weight: bold;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+        }
+    </style>
+{% endblock %}

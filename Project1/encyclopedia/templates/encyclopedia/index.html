@@ -1,0 +1,81 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="page-title">All Pages</h1>
+
+        <div class="page-list">
+            <ul>
+                {% for entry in entries %}
+                    <li class="page-item">
+                        <a href="{% url 'entry_page' entry %}" class="page-link">{{ entry }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block styles %}
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .page-item {
+            background-color: #ffffff;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .page-item:hover {
+            background-color: #f0f8ff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .page-link {
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: #007bff;
+            font-weight: 600;
+            display: block;
+        }
+
+        .page-link:hover {
+            color: #0056b3;
+        }
+
+        .page-item:hover .page-link {
+            color: #0056b3;
+        }
+    </style>
+{% endblock %}

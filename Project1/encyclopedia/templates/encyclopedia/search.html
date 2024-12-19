@@ -1,0 +1,92 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="search-title">Search Results for "{{ query }}"</h1>
+        
+        {% if results %}
+            <div class="results-list">
+                <ul>
+                    {% for entry in results %}
+                        <li class="result-item">
+                            <a href="{% url 'entry_page' entry %}" class="result-link">{{ entry }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <p class="no-results">No matching entries found.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block styles %}
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .search-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .results-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .result-item {
+            background-color: #ffffff;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-item:hover {
+            background-color: #f0f8ff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .result-link {
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: #007bff;
+            font-weight: 600;
+            display: block;
+        }
+
+        .result-link:hover {
+            color: #0056b3;
+        }
+
+        .result-item:hover .result-link {
+            color: #0056b3;
+        }
+
+        .no-results {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #dc3545;
+            margin-top: 30px;
+        }
+    </style>
+{% endblock %}

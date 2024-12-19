@@ -1,0 +1,104 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit {{ title }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="page-title">Edit Page: {{ title }}</h1>
+
+        <form action="{% url 'edit_page' title=title %}" method="post" class="edit-form">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="content" class="form-label">Markdown Content</label>
+                <textarea name="content" rows="10" cols="60" class="form-textarea">{{ content }}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block styles %}
+    <style>
+        body {
+            background-color: #f4f7fa;
+            font-family: Arial, sans-serif;
+            padding-top: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .edit-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 5px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        .form-textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .submit-btn {
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .submit-btn:active {
+            background-color: #004080;
+        }
+    </style>
+{% endblock %}
